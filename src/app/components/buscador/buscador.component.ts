@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 export class BuscadorComponent implements OnInit {
 
   public familias: any = [];
+  public articulos: any = "";
 
   constructor(private apiService: ApiService) { }
 
@@ -32,6 +33,23 @@ export class BuscadorComponent implements OnInit {
               console.log("Error")
             }
           );
-      }
+  }
 
+  public showArticulosFamilia (numFam){
+
+        console.log("Busco articulos de Familia ", numFam);
+
+        this.apiService.getArticuloFamiliaNum(numFam)
+            .subscribe(
+              result => {
+                this.articulos = result;
+                console.log("Resultado lista articulos", this.articulos)
+              },
+              error => {
+                console.log("Error")
+              }
+            );
+
+
+  }
 }

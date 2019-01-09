@@ -11,6 +11,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ApiService } from './services/api.service';
+import { CocheComponent } from './components/coche/coche.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ApiService } from './services/api.service';
       HeaderComponent,
       ServiciosComponent,
       AcercaComponent,
-      ContactoComponent
+      ContactoComponent,
+      CocheComponent
   ],
   imports: [
     BrowserModule,
