@@ -6,7 +6,7 @@
                 <!-- Section Heading -->
                 <div class="section-heading text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
                     <div class="line"></div>
-                    <h1>Buscador</h1>
+                    <h1>Vehiculos por Marca</h1>
                 </div>
             </div>
         </div>
@@ -16,39 +16,24 @@
 
             <div class="col-4 col-md-4 col-lg-4">
               <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="200ms">
-
+                    <div class="icon">
+                        <i class="icon-profits"></i>
+                    </div>
                     <div class="text">
-                        <h6>Marca</h6>
-                       <input/>
-
-                        <h6>Modelo</h6>
-                       <input/>
-
-                        <h6>Precio</h6>
-                       <input/>
-
-                        <h6>Kilometraje</h6>
-                       <input/>
-
-                        <h6>Tipo</h6>
-                       <input/>
-
-                        <h6>Carroceria</h6>
-                       <input/>
-
-                        <h6>Combustible</h6>
-                       <input/>
-
-                        <h6>Año Matriculación</h6>
-                       <input/>
+                        <h5>Marca</h5>
+                        <ul>
+                          <li *ngFor="let familia of familias.fam_m" (click)="showArticulosFamilia(familia.id )">{{ familia.id }} - {{ familia.name }}</li>
+                        </ul>
                     </div>
                 </div>
               </div>
               <div class="col-8 col-md-8 col-lg-8">
                 <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="200ms">
-
+                  <div class="icon">
+                      <i class="icon-profits"></i>
+                  </div>
                   <div class="text">
-                    <h6>Coches</h6>
+                    <h5>Coches</h5>
                     <ul>
                       <li *ngFor="let coche of articulos.art_m">{{ coche.id }} - {{ coche.name }}</li>
                     </ul>
