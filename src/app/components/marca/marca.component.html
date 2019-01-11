@@ -22,7 +22,8 @@
                     <div class="text">
                         <h5>Marca</h5>
                         <ul>
-                          <li *ngFor="let familia of familias.fam_m" (click)="showArticulosFamilia(familia.id )">{{ familia.id }} - {{ familia.name }}</li>
+                          <li *ngFor="let familia of familias.fam_m" (click)="showArticulosFamilia(familia.id )">
+                  <img width="10%" height="10%" src="data:image/png;base64,{{ familia.img }}"/> {{ familia.name }}</li>
                         </ul>
                     </div>
                 </div>
