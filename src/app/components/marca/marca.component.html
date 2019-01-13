@@ -22,13 +22,13 @@
                     <div class="text">
                         <h5>Marca</h5>
                         <ul>
-                          <li *ngFor="let familia of familias.fam_m" (click)="showArticulosFamilia(familia.id )">
+                          <li *ngFor="let familia of familias.fam_m" (click)="showArticulosFamilia(familia.id)">
                   <img width="10%" height="10%" src="data:image/png;base64,{{ familia.img }}"/> {{ familia.name }}</li>
                         </ul>
                     </div>
                 </div>
               </div>
-              <div class="col-8 col-md-8 col-lg-8">
+              <div class="col-4 col-md-4 col-lg-4">
                 <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="200ms">
                   <div class="icon">
                       <i class="icon-profits"></i>
@@ -36,8 +36,42 @@
                   <div class="text">
                     <h5>Coches</h5>
                     <ul>
-                      <li *ngFor="let coche of articulos.art_m">{{ coche.id }} - {{ coche.name }}</li>
+                      <li *ngFor="let coche of articulos.art_m" (click)="showArticulo(coche.id)">{{ coche.id }} - {{ coche.name }}</li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 col-md-4 col-lg-4">
+                <div class="single-service-area d-flex mb-100 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="text" *ngIf='articulo'>
+                    <h5>{{ articulo.name }}</h5>
+                    <div class="row">
+                      <div class="col-4 col-md-4 col-lg-4">
+                      Kilometraje{{ articulo.kms }}
+                      </div>
+                      <div class="col-4 col-md-4 col-lg-4">
+                      Año {{ articulo.ano_mat }}
+                      </div>
+                      <div class="col-4 col-md-4 col-lg-4">
+                      CC/CV {{ articulo.cc }}/{{ articulo.cv }}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4 col-md-4 col-lg-4">
+                      Precio{{ articulo.pvp }}
+                      </div>
+                      <div class="col-4 col-md-4 col-lg-4">
+                      Combustible {{ articulo.cmbs }}
+                      </div>
+                      <div class="col-4 col-md-4 col-lg-4">
+                      Carroceria {{ articulo.carr }}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12 col-lg-12">
+                          <img height="300px" width="150px" src="http://auto.arysoft.es/imagenes/{{articulo.img_name_1}}" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -12,6 +12,8 @@ export class MarcaComponent implements OnInit {
 
   public familias: any = [];
   public articulos: any = "";
+  public articulo: any = null;
+  public array: any =[];
 
   constructor(private apiService: ApiService) { }
 
@@ -34,6 +36,27 @@ export class MarcaComponent implements OnInit {
               console.log("Error")
             }
           );
+  }
+
+  public showArticulo (numArt){
+
+        console.log("Busco articulos de Familia ", numArt);
+
+        this.apiService.getArticuloNum(numArt)
+            .subscribe(
+              result => {
+                this.array = result;
+                for (let i= 0; i <1; i++){
+                  this.articulo = this.array.art_m[i];
+                }
+                console.log("Resultado de articulo", this.articulo)
+              },
+              error => {
+                console.log("Error")
+              }
+            );
+
+
   }
 
   public showArticulosFamilia (numFam){

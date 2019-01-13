@@ -1863,3 +1863,108 @@ img {
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
+
+/* You can add global styles to this file, and also import other style files */
+ @media (min-width: 1026px)
+.col-md-pull-9 {
+    right: 75%;
+}
+
+@media (min-width: 1026px)
+.col-md-3 {
+    width: 25%;
+}
+@media (min-width: 1026px)
+.col-md-push-3 {
+    left: 25%;
+}
+@media (min-width: 1026px)
+.col-md-9 {
+    width: 75%;
+}
+.labelTextBlue {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #0d4f78;
+}
+
+.anuncio_horizontal_content{
+    display: flex;
+}
+.anuncio_horizontal_footer {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.anuncio_horizontal_izq {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+.anuncio_horizontal_precio {
+    color: #0d4f78;
+    font-size: 22px;
+    font-weight: 700;
+}
+@media (min-width: 768px)
+.anuncio_horizontal_list {
+    flex-direction: row;
+    margin-left: -15px;
+}
+.anuncio_horizontal_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+@media (min-width: 768px)
+.anuncio_horizontal_list {
+    display: inline;
+    padding-right: 5px;
+}
+.anuncio_horizontal_imageContainer {
+    flex: 0 0 auto;
+    margin-top: 5px;
+}
+
+.anuncio_horizontal_tabletImageContainer {
+    position: relative;
+    width: 200px;
+    height: 150px;
+}
+
+.anuncio_horizontal_main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 10px;
+}
+@media (min-width: 768px)
+.anuncio_horizontal_vehicleExtraInfoItem {
+    font-size: 12px;
+}
+
+.anuncio_horizontal_item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+ li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+} .anuncio_horizontal_root {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} 
