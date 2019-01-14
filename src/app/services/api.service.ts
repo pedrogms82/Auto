@@ -17,9 +17,15 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   public getFamilias()  {
-  return this.http.get(this.rootUrl+'/fam_m?api_key=fam');
+  return this.http.get(this.rootUrl+'/fam_m?filter%5Bes_modelo%5D=false&api_key=fam');
   }
 
+  public getModelos()  {
+  return this.http.get(this.rootUrl+'/fam_m?filter%5Bes_modelo%5D=true&api_key=fam');
+  }
+  public getModelosPorMarca(marca)  {
+  return this.http.get(this.rootUrl+'/VAPI_MODELO_POR_MARCA?MARCA='+marca, { headers: this.reqHeader } );
+  }
   public getArticuloFamiliaNum(FamNum)  {
   return this.http.get(this.rootUrl+'/art_m?filter%5Bfam%5D='+FamNum+'&api_key=art');
   }

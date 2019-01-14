@@ -8,6 +8,7 @@
 @import url(css/animate.css);
 @import url(css/font-awesome.min.css);
 @import url(css/credit-icon.css);
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* :: 3.0 Base CSS */
 * {
   margin: 0;
@@ -1920,7 +1921,7 @@ img {
     margin-left: -15px;
 }
 .anuncio_horizontal_list {
-    display: flex;
+    display: inline;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 0;
@@ -1967,4 +1968,4 @@ img {
     margin: 0;
     padding: 0;
     list-style: none;
-} 
+}
