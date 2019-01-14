@@ -20,12 +20,11 @@
                             <div class="selector">
                               <span class="labelTextBlue">Marca </span>
                               <div>
-                                <select data-qa-selector="select"  formControlName="Marca" class="form-control w25" (change)="onChange($event.target.value)">
-                                  <option  value="0" selected>Cualquiera</option>
-                                  <option  [value]="familia.id" *ngFor="let familia of familias.fam_m">{{familia.name}}</option>
+                                <select data-qa-selector="select"  formControlName="Marca" class="form-control w25" (change)="onChangeMarca($event.target.value)">
+                                  <option  [value]="familia.id" *ngFor="let familia of familias.fam_m" required>{{familia.name}}</option>
                                 </select>
                                 <mat-form-field>
-                                <mat-select  data-qa-selector="select"  formControlName="Marca" class="form-control w25" (selectionChange)="onChange($event.target.value)">
+                                <mat-select  data-qa-selector="select"  formControlName="Marca" class="form-control w25" (selectionChange)="onChangeMarca($event.target.value)">
                                   <mat-option  value="0" selected>Cualquiera</mat-option>
                                   <mat-option  [value]="familia.id" *ngFor="let familia of familias.fam_m">{{familia.name}}</mat-option>
                                 </mat-select>
@@ -35,6 +34,9 @@
                             <div class="selector">
                               <span class="labelTextBlue">Modelo</span>
                               <div>
+                                <select data-qa-selector="select"  formControlName="Modelo" class="form-control w25" (change)="onChangeModelo($event.target.value)">
+                                  <option  [value]="modelo.id" *ngFor="let modelo of modelos.fam_m">{{modelo.name}}</option>
+                                </select>
                                 <mat-form-field>
                                 <mat-select data-qa-selector="select"  formControlName="Modelo" class="form-control w25" (selectionChange)="onChange($event.target.value)">
                                   <mat-option  value="0" selected>Cualquiera</mat-option>
@@ -43,6 +45,8 @@
                                 </mat-form-field>
                               </div>
                             </div>
+
+                            <button class="btn credit-btn mt-50" type="button" name="button" (click)="buscaVehiculos()">Buscar</button>
                             <div class="selector">
                               <span class="labelTextBlue">Precio</span>
                               <div>
@@ -127,43 +131,43 @@
             <div class="col-9 col-md-9 col-lg-9 col-md-push-3">
 
 
-              Results
-<ul>
-  <li>
+
+<ul *ngIf="articulos">
+  <li  *ngFor="let articulo of articulos.art_m">
         <div class="container-fluid">
         	<div class="row">
         		<div class="col-md-3">
-        			<img class="anuncio_horizontal_image" alt="car" src="https://img-eu-c1.compramostucoche.es/img/e3675090-df40-4ef1-b83e-859e0b04089a/220x165-7ea5645e-267b-4f02-bc2c-4d1caa75eb02.jpg">
+        			<img class="anuncio_horizontal_image" alt="car" src="http://auto.arysoft.es/imagenes/{{articulo.img1}}">
         		</div>
         		<div class="col-md-9">
         			<div class="row">
         				<div class="col-md-12 anuncio_horizontal_main">
         					<h3>
-        					  Hyundai Kona 1.6 TGDI
+        					  {{articulo.name}}
         					</h3>
         				</div>
         			</div>
         			<div class="row">
         				<div class="col-md-12">
                   <ul class="anuncio_horizontal_list">
-                  <li class="anuncio_horizontal_lista">Matriculación: </li>
-                  <li class="anuncio_horizontal_lista">Kilometraje: </li>
+                  <li class="anuncio_horizontal_lista">Matriculación: {{articulo.matriculacion}}</li>
+                  <li class="anuncio_horizontal_lista">Kilometraje: {{articulo.kilometraje}}</li>
                   </ul>
         				</div>
         			</div>
         			<div class="row">
                 <div class="col-md-8 ">
                   <ul class="anuncio_horizontal_list">
-                  <li class="anuncio_horizontal_lista">Potencia:</li>
-                  <li class="anuncio_horizontal_lista">Cilindrada:</li>
+                  <li class="anuncio_horizontal_lista">Potencia: {{articulo.cv}}</li>
+                  <li class="anuncio_horizontal_lista">Cilindrada: {{articulo.cc}}</li>
                   </ul><br>
                   <ul class="anuncio_horizontal_list">
-                  <li class="anuncio_horizontal_lista">Cambio tipo:</li>
-                  <li class="anuncio_horizontal_lista">Gasolina</li>
+                  <li class="anuncio_horizontal_lista">Cambio tipo: {{articulo.tipo_veh}}</li>
+                  <li class="anuncio_horizontal_lista">Combustible: {{articulo.combustible}}</li>
                   </ul>
         				</div>
         				<div class="col-md-4 text-right">
-        					 <span class="anuncio_horizontal_precio">23.899&nbsp;€</span>
+        					 <span class="anuncio_horizontal_precio">{{articulo.pvp}}&nbsp;€</span>
         				</div>
         			</div>
         		</div>

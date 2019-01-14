@@ -12,9 +12,10 @@ export class BuscadorComponent implements OnInit {
 
   public familias: any = [];
   public modelos: any = [];
-  public marcaSeleccionada = "";
-  public articulos: any = "";
+  public articulos: any = false;
   public formBusca: FormGroup;
+  public marcaSeleccionada: string ="";
+  public modeloSeleccionado: string ="";
 
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
@@ -74,20 +75,26 @@ export class BuscadorComponent implements OnInit {
 }
 
 
-public onChange(marca) {
+public onChangeMarca(marca) {
     console.log("Selecciono ", marca);
+    this.marcaSeleccionada = marca;
 
     this.apiService.getModelosPorMarca(marca)
         .subscribe(
           result => {
             this.modelos = result;
             console.log("Resultado lista Modelos", result);
-    
+
           },
           error => {
             console.log("Error ", error);
           }
         );
+}
+
+public onChangeModelo(modelo) {
+    console.log("Selecciono ", modelo);
+    this.modeloSeleccionado = modelo;
 }
 
   public showArticulosFamilia (numFam){
@@ -98,13 +105,33 @@ public onChange(marca) {
             .subscribe(
               result => {
                 this.articulos = result;
-                console.log("Resultado lista articulos", this.articulos)
+                console.log("Resultado lista articulos", this.articulos);
               },
               error => {
-                console.log("Error")
+                console.log("Error ", error);
               }
             );
-
-
-  }
 }
+
+  public buscaVehiculos (value){
+    console.log("busco vehiculos", value);
+    console.log("modelo", this.modeloSeleccionado);
+    console.log("marca", this.marcaSeleccionada);
+    let datos ;
+
+    if (this.modeloSeleccionado) { datos = 'modelo='+this.modeloSeleccionado }
+    else if (this.marcaSeleccionada) { datos = 'marca='+this.marcaSeleccionada }
+    // else 
+
+    this.apiService.buscadorVehiculos(datos)
+        .subscribe(
+          result => {
+            this.articulos = result;
+            console.log("Resultado Busqueda", this.articulos);
+          },
+          error => {
+            console.log("Error ", error);
+          }
+        );
+ }
+}//export
