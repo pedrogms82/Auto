@@ -1,10 +1,10 @@
 <!-- ##### Services Area Start ###### -->
-<section class="services-area section-padding-100-0">
+<section class="services-area mt-30">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <!-- Section Heading -->
-                <div class="section-heading text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                <div class="section-heading text-center mb-30 wow fadeInUp" data-wow-delay="100ms">
                     <div class="line"></div>
                     <h1>Buscador</h1>
                 </div>
@@ -23,117 +23,104 @@
                                 <select data-qa-selector="select"  formControlName="Marca" class="form-control w25" (change)="onChangeMarca($event.target.value)">
                                   <option  [value]="familia.id" *ngFor="let familia of familias.fam_m" required>{{familia.name}}</option>
                                 </select>
-                                <mat-form-field>
-                                <mat-select  data-qa-selector="select"  formControlName="Marca" class="form-control w25" (selectionChange)="onChangeMarca($event.target.value)">
-                                  <mat-option  value="0" selected>Cualquiera</mat-option>
-                                  <mat-option  [value]="familia.id" *ngFor="let familia of familias.fam_m">{{familia.name}}</mat-option>
-                                </mat-select>
-                                </mat-form-field>
                               </div>
                             </div>
                             <div class="selector">
                               <span class="labelTextBlue">Modelo</span>
                               <div>
                                 <select data-qa-selector="select"  formControlName="Modelo" class="form-control w25" (change)="onChangeModelo($event.target.value)">
+                                  <option  value="ffff"></option>
                                   <option  [value]="modelo.id" *ngFor="let modelo of modelos.fam_m">{{modelo.name}}</option>
                                 </select>
-                                <mat-form-field>
-                                <mat-select data-qa-selector="select"  formControlName="Modelo" class="form-control w25" (selectionChange)="onChange($event.target.value)">
-                                  <mat-option  value="0" selected>Cualquiera</mat-option>
-                                  <mat-option  [value]="modelo.id" *ngFor="let modelo of modelos.fam_m">{{modelo.name}}</mat-option>
-                                </mat-select>
-                                </mat-form-field>
-                              </div>
-                            </div>
-
-                            <button class="btn credit-btn mt-50" type="button" name="button" (click)="buscaVehiculos()">Buscar</button>
-                            <div class="selector">
-                              <span class="labelTextBlue">Precio</span>
-                              <div>
-                                <input class="form-control w25"formControlName="Precio"/>
-                              </div>
-                            </div>
-                            <div class="selector">
-                              <span class="labelTextBlue">Kilometraje </span>
-                              <div>
-                                <input class="form-control w25" formControlName="Kilometraje"/>
-                              </div>
-                            </div>
-                            <div class="selector">
-                              <span class="labelTextBlue">Tipo</span>
-                              <div>
-                                <input class="form-control w25"/>
-                              </div>
-                            </div>
-                            <div class="selector">
-                              <span class="labelTextBlue">Carroceria</span>
-                              <div>
-                                <input class="form-control w25"/>
                               </div>
                             </div>
                             <div class="selector">
                               <span class="labelTextBlue">Combustible</span>
                               <div>
-                                <input class="form-control w25"/>
+                                <select data-qa-selector="select"  formControlName="Combustible" class="form-control w25" (change)="onChangeCombustible($event.target.value)">
+                                  <option  selected=""  value="0">Cualquiera</option>
+                                  <option  [value]="combustible.id" *ngFor="let combustible of Combustible">{{combustible.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="selector">
+                              <span class="labelTextBlue">Carroceria</span>
+                              <div>
+                                <select data-qa-selector="select"  formControlName="Carroceria" class="form-control w25" (change)="onChangeCarroceria($event.target.value)">
+                                  <option  selected=""  value="0">Cualquiera</option>
+                                  <option  [value]="carroceria.id" *ngFor="let carroceria of Carroceria">{{carroceria.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="selector">
+                              <span class="labelTextBlue">Kilometraje Máximo</span>
+                              <div>
+                                <input class="form-control w25" formControlName="Kilometraje"/>
+                              </div>
+                            </div>
+                            <div class="selector">
+                              <span class="labelTextBlue">Potencia (CV) Minima</span>
+                              <div>
+                                <input class="form-control w25" formControlName="Potencia"/>
                               </div>
                             </div>
                             <div class="selector">
                               <span class="labelTextBlue">Año Matriculación</span>
                               <div>
-                                <input class="form-control w25"/>
+                                <input class="form-control w25" formControlName="Matriculacion"/>
                               </div>
                             </div>
-
-
-
+                            <div class="selector">
                               <span class="labelTextBlue">Precio Máximo</span>
 
-                                <select data-qa-selector="select" name="precio.max" class="form-control w25">
+                                <select data-qa-selector="select" formControlName="precio.max" class="form-control w25" (change)="onChangePrecio($event.target.value)">
                                   <option selected=""  value="0">Cualquiera</option>
-                                  <option data-qa-selector-value="500"  value="1">500&nbsp;€</option>
-                                  <option data-qa-selector-value="1000"  value="2">1.000&nbsp;€</option>
-                                  <option data-qa-selector-value="1500"  value="3">1.500&nbsp;€</option>
-                                  <option data-qa-selector-value="2000"  value="4">2.000&nbsp;€</option>
-                                  <option data-qa-selector-value="2500"  value="5">2.500&nbsp;€</option>
-                                  <option data-qa-selector-value="3000"  value="6">3.000&nbsp;€</option>
-                                  <option data-qa-selector-value="3500"  value="7">3.500&nbsp;€</option>
-                                  <option data-qa-selector-value="4000"  value="8">4.000&nbsp;€</option>
-                                  <option data-qa-selector-value="4500"  value="9">4.500&nbsp;€</option>
-                                  <option data-qa-selector-value="5000"  value="10">5.000&nbsp;€</option>
-                                  <option data-qa-selector-value="6000"  value="11">6.000&nbsp;€</option>
-                                  <option data-qa-selector-value="7000"  value="12">7.000&nbsp;€</option>
-                                  <option data-qa-selector-value="8000"  value="13">8.000&nbsp;€</option>
-                                  <option data-qa-selector-value="9000"  value="14">9.000&nbsp;€</option>
-                                  <option data-qa-selector-value="10000"  value="15">10.000&nbsp;€</option>
-                                  <option data-qa-selector-value="11000"  value="16">11.000&nbsp;€</option>
-                                  <option data-qa-selector-value="12000"  value="17">12.000&nbsp;€</option>
-                                  <option data-qa-selector-value="13000"  value="18">13.000&nbsp;€</option>
-                                  <option data-qa-selector-value="14000"  value="19">14.000&nbsp;€</option>
-                                  <option data-qa-selector-value="15000"  value="20">15.000&nbsp;€</option>
-                                  <option data-qa-selector-value="17500"  value="21">17.500&nbsp;€</option>
-                                  <option data-qa-selector-value="20000"  value="22">20.000&nbsp;€</option>
-                                  <option data-qa-selector-value="22500"  value="23">22.500&nbsp;€</option>
-                                  <option data-qa-selector-value="25000"  value="24">25.000&nbsp;€</option>
-                                  <option data-qa-selector-value="27500"  value="25">27.500&nbsp;€</option>
-                                  <option data-qa-selector-value="30000"  value="26">30.000&nbsp;€</option>
-                                  <option data-qa-selector-value="35000"  value="27">35.000&nbsp;€</option>
-                                  <option data-qa-selector-value="40000"  value="28">40.000&nbsp;€</option>
-                                  <option data-qa-selector-value="45000"  value="29">45.000&nbsp;€</option>
-                                  <option data-qa-selector-value="50000"  value="30">50.000&nbsp;€</option>
-                                  <option data-qa-selector-value="55000"  value="31">55.000&nbsp;€</option>
-                                  <option data-qa-selector-value="60000"  value="32">60.000&nbsp;€</option>
-                                  <option data-qa-selector-value="70000"  value="33">70.000&nbsp;€</option>
-                                  <option data-qa-selector-value="80000"  value="34">80.000&nbsp;€</option>
-                                  <option data-qa-selector-value="100000" value="35">100.000&nbsp;€</option>
+                                  <option value="500">500&nbsp;€</option>
+                                  <option value="1000">1.000&nbsp;€</option>
+                                  <option value="1500">1.500&nbsp;€</option>
+                                  <option value="2000">2.000&nbsp;€</option>
+                                  <option value="2500">2.500&nbsp;€</option>
+                                  <option value="3000">3.000&nbsp;€</option>
+                                  <option value="3500">3.500&nbsp;€</option>
+                                  <option value="4000">4.000&nbsp;€</option>
+                                  <option value="4500">4.500&nbsp;€</option>
+                                  <option value="5000">5.000&nbsp;€</option>
+                                  <option value="6000">6.000&nbsp;€</option>
+                                  <option value="7000">7.000&nbsp;€</option>
+                                  <option value="8000">8.000&nbsp;€</option>
+                                  <option value="9000">9.000&nbsp;€</option>
+                                  <option value="10000">10.000&nbsp;€</option>
+                                  <option value="11000">11.000&nbsp;€</option>
+                                  <option value="12000">12.000&nbsp;€</option>
+                                  <option value="13000">13.000&nbsp;€</option>
+                                  <option value="14000">14.000&nbsp;€</option>
+                                  <option value="15000">15.000&nbsp;€</option>
+                                  <option value="17500">17.500&nbsp;€</option>
+                                  <option value="20000">20.000&nbsp;€</option>
+                                  <option value="22500">22.500&nbsp;€</option>
+                                  <option value="25000">25.000&nbsp;€</option>
+                                  <option value="27500">27.500&nbsp;€</option>
+                                  <option value="30000">30.000&nbsp;€</option>
+                                  <option value="35000">35.000&nbsp;€</option>
+                                  <option value="40000">40.000&nbsp;€</option>
+                                  <option value="45000">45.000&nbsp;€</option>
+                                  <option value="50000">50.000&nbsp;€</option>
+                                  <option value="55000">55.000&nbsp;€</option>
+                                  <option value="60000">60.000&nbsp;€</option>
+                                  <option value="70000">70.000&nbsp;€</option>
+                                  <option value="80000">80.000&nbsp;€</option>
+                                  <option value="100000">100.000&nbsp;€</option>
                                 </select>
-                      </form>
+                            </div>
+                            <button class="btn credit-btn mt-50" type="button" name="button" (click)="buscaVehiculos()">Buscar</button>
+                </form>
             </div>
             <div class="col-9 col-md-9 col-lg-9 col-md-push-3">
 
 
 
 <ul *ngIf="articulos">
-  <li  *ngFor="let articulo of articulos.art_m">
+  <li  *ngFor="let articulo of articulos.art_m" class="sep_art">
         <div class="container-fluid">
         	<div class="row">
         		<div class="col-md-3">

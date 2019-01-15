@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FormBuilder, FormGroup,  Validators  } from '@angular/forms';
+import { environment } from '../../constants';
 
 @Component({
   selector: 'app-buscador',
@@ -10,12 +11,17 @@ import { FormBuilder, FormGroup,  Validators  } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit {
 
+  public Carroceria = environment.Carroceria;
+  public Combustible = environment.Combustible;
   public familias: any = [];
   public modelos: any = [];
   public articulos: any = false;
   public formBusca: FormGroup;
   public marcaSeleccionada: string ="";
   public modeloSeleccionado: string ="";
+  public carroceriaSeleccionado: string ="";
+  public combustibleSeleccionado: string ="";
+  public precioSeleccionado = 0;
 
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
@@ -27,8 +33,14 @@ export class BuscadorComponent implements OnInit {
           Marca:['', Validators.required],
           Modelo:['', Validators.required],
           Precio:['', Validators.required],
-          Kilometraje:['', Validators.required]
+          Kilometraje:['', Validators.required],
+          Carroceria:['', Validators.required],
+          Combustible:['', Validators.required],
+          PrecioMax:['', Validators.required],
+          Matriculacion:['', Validators.required],
+          Potencia:['', Validators.required]
     });
+    console.log("formulario ",this.formBusca);
     console.log("Busco Marcas");
     this.showFamilias();
     console.log("Busco Modelos");
@@ -78,6 +90,8 @@ export class BuscadorComponent implements OnInit {
 public onChangeMarca(marca) {
     console.log("Selecciono ", marca);
     this.marcaSeleccionada = marca;
+    this.modeloSeleccionado = "";
+//    this.formBusca.controls['Modelo'].value="ffff";
 
     this.apiService.getModelosPorMarca(marca)
         .subscribe(
@@ -92,10 +106,31 @@ public onChangeMarca(marca) {
         );
 }
 
-public onChangeModelo(modelo) {
-    console.log("Selecciono ", modelo);
-    this.modeloSeleccionado = modelo;
-}
+
+  public onChangeModelo(modelo) {
+      console.log("Selecciono modelo ", modelo);
+      this.modeloSeleccionado = modelo;
+      console.log("FORM ",this.formBusca);
+  }
+
+  public onChangeCarroceria(carroceria) {
+      console.log("Selecciono ", carroceria);
+      this.carroceriaSeleccionado = carroceria;
+      console.log("FORM ",this.formBusca);
+  }
+
+  public onChangeCombustible(combustible) {
+      console.log("Selecciono ", combustible);
+      this.combustibleSeleccionado = combustible;
+      console.log("FORM ",this.formBusca);
+  }
+
+  public onChangePrecio(precio) {
+      console.log("Selecciono ", precio);
+      this.precioSeleccionado = precio;
+      console.log("FORM ",this.formBusca);
+  }
+
 
   public showArticulosFamilia (numFam){
 
@@ -113,15 +148,23 @@ public onChangeModelo(modelo) {
             );
 }
 
-  public buscaVehiculos (value){
-    console.log("busco vehiculos", value);
-    console.log("modelo", this.modeloSeleccionado);
+  public buscaVehiculos (){
+        console.log("modelo", this.modeloSeleccionado);
     console.log("marca", this.marcaSeleccionada);
+    console.log("kilometraje", this.formBusca.controls['Kilometraje'].value)
     let datos ;
+
 
     if (this.modeloSeleccionado) { datos = 'modelo='+this.modeloSeleccionado }
     else if (this.marcaSeleccionada) { datos = 'marca='+this.marcaSeleccionada }
-    // else 
+    // else
+    if (this.carroceriaSeleccionado) { datos = datos + '&carroceria='+this.carroceriaSeleccionado }
+    if (this.combustibleSeleccionado) { datos = datos + '&combustible='+this.combustibleSeleccionado }
+    if (this.precioSeleccionado) { datos = datos + '&precio='+this.precioSeleccionado }
+    if (this.formBusca.controls['Kilometraje'].value) { datos = datos + '&kilometraje='+this.formBusca.controls['Kilometraje'].value }
+    if (this.formBusca.controls['Potencia'].value) { datos = datos + '&potencia='+this.formBusca.controls['Potencia'].value }
+    if (this.formBusca.controls['Matriculacion'].value) { datos = datos + '&matriculacion='+this.formBusca.controls['Matriculacion'].value }
+
 
     this.apiService.buscadorVehiculos(datos)
         .subscribe(

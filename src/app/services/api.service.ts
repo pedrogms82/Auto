@@ -38,6 +38,7 @@ export class ApiService {
   }
 
   public buscadorVehiculos(datos) {
+    console.log("Busqueda ", datos);
     return this.http.get(this.customUrl+'/VAPI_BUSQUEDA?'+datos );
   }
 
