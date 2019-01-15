@@ -23,6 +23,7 @@ export class BuscadorComponent implements OnInit {
   public combustibleSeleccionado: string ="";
   public precioSeleccionado = 0;
   public mobile = false;
+  public varbuscaMovil = false;
 
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
@@ -34,7 +35,6 @@ export class BuscadorComponent implements OnInit {
     this.formBusca = this.formBuilder.group({
           Marca:['', Validators.required],
           Modelo:['', Validators.required],
-          Precio:['', Validators.required],
           Kilometraje:['', Validators.required],
           Carroceria:['', Validators.required],
           Combustible:['', Validators.required],
@@ -49,7 +49,7 @@ export class BuscadorComponent implements OnInit {
     this.showModelos();
 
 
-        if (window.screen.width === 360) { // 768px portrait
+        if (window.screen.width <= 420) { // 768px portrait
           this.mobile = true;
         }
   }
@@ -153,7 +153,12 @@ public onChangeMarca(marca) {
                 console.log("Error ", error);
               }
             );
-}
+  }
+
+  public verBuscaMovil(valor){
+
+    if( valor ) { this.varbuscaMovil = true; console.log("varBM ", true)} else { this.varbuscaMovil = false;console.log("varBM ", false)}
+  }
 
   public buscaVehiculos (){
         console.log("modelo", this.modeloSeleccionado);
@@ -161,6 +166,7 @@ public onChangeMarca(marca) {
     console.log("kilometraje", this.formBusca.controls['Kilometraje'].value)
     let datos ;
 
+    if(this.mobile){this.verBuscaMovil(true)};
 
     if (this.modeloSeleccionado) { datos = 'modelo='+this.modeloSeleccionado }
     else if (this.marcaSeleccionada) { datos = 'marca='+this.marcaSeleccionada }
