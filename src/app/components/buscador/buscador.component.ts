@@ -22,11 +22,13 @@ export class BuscadorComponent implements OnInit {
   public carroceriaSeleccionado: string ="";
   public combustibleSeleccionado: string ="";
   public precioSeleccionado = 0;
+  public mobile = false;
 
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
     console.log("Inicio formulario de Busqueda");
 
     this.formBusca = this.formBuilder.group({
@@ -45,6 +47,11 @@ export class BuscadorComponent implements OnInit {
     this.showFamilias();
     console.log("Busco Modelos");
     this.showModelos();
+
+
+        if (window.screen.width === 360) { // 768px portrait
+          this.mobile = true;
+        }
   }
 
   public showFamilias(){

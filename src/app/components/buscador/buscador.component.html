@@ -7,6 +7,8 @@
                 <div class="section-heading text-center mb-30 wow fadeInUp" data-wow-delay="100ms">
                     <div class="line"></div>
                     <h1>Buscador</h1>
+                    <div *ngIf="!mobile"> NO MOBILE </div>
+                    <div *ngIf="mobile"> MOBILE </div>
                 </div>
             </div>
         </div>
@@ -14,7 +16,7 @@
         <div class="row col-12 col-md-12 col-lg-12">
             <!-- Single Service Area -->
 
-            <div class="col-3 col-md-3 col-lg-3 col-md-pull-9">
+            <div class="col-md-3 col-lg-3 col-md-pull-9 col-sm-12">
               <!-- Params -->
               <form [formGroup]="formBusca">
                             <div class="selector">
@@ -115,7 +117,7 @@
                             <button class="btn credit-btn mt-50" type="button" name="button" (click)="buscaVehiculos()">Buscar</button>
                 </form>
             </div>
-            <div class="col-9 col-md-9 col-lg-9 col-md-push-3">
+            <div class="col-md-9 col-lg-9 col-md-push-3 col-sm-12">
 
 
 
