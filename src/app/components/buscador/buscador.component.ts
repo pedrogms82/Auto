@@ -24,11 +24,18 @@ export class BuscadorComponent implements OnInit {
   public precioSeleccionado = 0;
   public mobile = false;
   public varbuscaMovil = false;
+  //expanded
+  public expandedForm = false;
 
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+      // this.mobile = true;
+            if (window.screen.width <= 420) { // 768px portrait
+              this.mobile = true;
+            }
 
     console.log("Inicio formulario de Busqueda");
 
@@ -48,10 +55,6 @@ export class BuscadorComponent implements OnInit {
     console.log("Busco Modelos");
     this.showModelos();
 
-
-        if (window.screen.width <= 420) { // 768px portrait
-          this.mobile = true;
-        }
   }
 
   public showFamilias(){

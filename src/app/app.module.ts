@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatSelectModule,MatFormFieldModule, MatInputModule} from '@angular/material';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ApiService } from './services/api.service';
 import { CocheComponent } from './components/coche/coche.component';
 import { MarcaComponent } from './components/marca/marca.component';
+import { ArticuloComponent } from './components/articulo/articulo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { MarcaComponent } from './components/marca/marca.component';
       AcercaComponent,
       ContactoComponent,
       CocheComponent,
-      MarcaComponent
+      MarcaComponent,
+      ArticuloComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { MarcaComponent } from './components/marca/marca.component';
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxGalleryModule
   ],
   exports: [
     MatButtonModule,

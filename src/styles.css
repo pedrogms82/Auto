@@ -107,3 +107,16 @@
   padding-right: 5px;
   display: inline;
 }
+.anuncio_lista{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pull-right {
+    /* right: 50%; */
+    float: right;
+}
+
+.ngx-gallery-preview-wrapper{
+  width: 50%;
+}

@@ -1,6 +1,6 @@
 <header class="header-area">
     <!-- Top Header Area -->
-    <div class="top-header-area">
+    <div class="top-header-area"  *ngIf="!mobile">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 d-flex justify-content-between">
@@ -23,9 +23,8 @@
             </div>
         </div>
     </div>
-
     <!-- Navbar Area -->
-    <div class="credit-main-menu" id="sticker">
+    <div class="credit-main-menu" id="sticker" *ngIf="!mobile">
         <div class="classy-nav-container breakpoint-off">
             <div class="container">
                 <!-- Menu -->
@@ -48,13 +47,9 @@
                         <div class="classynav">
                             <ul>
                                 <li><a [routerLink]="['']">Home</a></li>
-
                                 <li><a [routerLink]="['servicios']">Servicios</a></li>
                                 <li><a [routerLink]="['marca']">Marcas</a></li>
-                                <!-- <li><a [routerLink]="['buscador']">Buscador</a></li> -->
-                                <li><a routerLink="/buscador">Buscador</a></li>
-
-
+                                <li><a routerLink="buscador">Buscador</a></li>
                                 <li><a [routerLink]="['acerca']">Acerda de</a></li>
                                 <li><a [routerLink]="['contacto']">Contacto</a></li>
                             </ul>
@@ -68,7 +63,25 @@
                     </div>
                 </nav>
             </div>
+
         </div>
     </div>
+
+    <div class="menu_bar" *ngIf="mobile">
+      <a class="bt-menu"><span class="icon-list2"></span>
+        <img src="http://auto.arysoft.es/imagenes/open-menu.png" alt="">
+      </a>
+    </div>
+    <nav *ngIf="mobile">
+      <ul>
+        <li><a [routerLink]="['']" onclick="closeMenu();"><span class="icon-house"></span>Inicio</a></li>
+        <li><a [routerLink]="['servicios']" onclick="closeMenu();"><span class="icon-suitcase"></span>Servicios</a></li>
+        <!-- <li><a [routerLink]="['marca']" onclick="closeMenu();"><span class="icon-rocket"></span>Marcas</a></li> -->
+        <li><a routerLink="/buscador" onclick="closeMenu();"><span class="icon-earth"></span>Buscador</a></li>
+        <li><a [routerLink]="['acerca']" onclick="closeMenu();"><span class="icon-mail"></span>Acerca</a></li>
+        <li><a [routerLink]="['contacto']" onclick="closeMenu();"><span class="icon-mail"></span>Contacto</a></li>
+     </ul>
+   </nav>
+
 </header>
 <!-- ##### Header Area End ##### -->

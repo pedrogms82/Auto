@@ -57,5 +57,6 @@ export const environment = {
       "id": 9,
       "name":" Coche de uso comercial"
     }
-    ]
-};
+    ],
+    Imagenes: "http://auto.arysoft.es/imagenes/"
+    };

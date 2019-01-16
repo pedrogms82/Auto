@@ -1,69 +1,92 @@
 <!-- ##### Call To Action Start ###### -->
-<section class="cta-area d-flex flex-wrap">
+<section class="cta-area d-flex flex-wrap" *ngFor="let coche of articulo.art_m">
+    <div class="row" *ngIf="!mobile">
     <!-- Cta Thumbnail -->
-    <div class="cta-thumbnail bg-img jarallax">GALERIA</div>
+      <div class="cta-thumbnail bg-img jarallax">
 
-    <!-- Cta Content -->
-    <div class="cta-content">
-        <!-- Section Heading -->
-        <div class="section-heading white">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+      </div>
+
+      <!-- Cta Content -->
+      <div class="cta-content">
+          <!-- Section Heading -->
+          <div class="section-heading white">
+              <div class="line"></div>
+              <h2>{{coche.name}}</h2>
+          </div>
+          <h6>
+            El A1 se presentó por primera vez bajo un modelo conceptual en el Salón del Automóvil de Tokio de 2007 como el Audi A1 Metroproject Quattro. El prototipo de automóvil era un hatchback de tres puertas y cuatro plazas.
+          </h6>
+
+          <a href="#" class="btn credit-btn box-shadow btn-2">Reservar</a>
+        </div>
+    </div>
+    <div class="row" *ngIf="mobile">
+
+        <!-- <div class="section-plus-height"> -->
+        <div>
             <div class="line"></div>
-            <p>Audi</p>
-            <h2>Audi A1 1.4 TDI CV 110</h2>
+            <h2>{{coche.name}}</h2>
         </div>
         <h6>
-          El A1 se presentó por primera vez bajo un modelo conceptual en el Salón del Automóvil de Tokio de 2007 como el Audi A1 Metroproject Quattro. El prototipo de automóvil era un hatchback de tres puertas y cuatro plazas. Montaba un propulsor híbrido: con un motor de gasolina turboalimentado de 1,4 litros de cilindrada y 150 CV de potencia máxima junto a un motor eléctrico de 40 CV (29,8 kW) de potencia máxima de 200,7 N·m de par motor.
+          El A1 se presentó por primera vez bajo un modelo conceptual en el Salón del Automóvil de Tokio de 2007 como el Audi A1 Metroproject Quattro. El prototipo de automóvil era un hatchback de tres puertas y cuatro plazas.
         </h6>
-        <div class="d-flex flex-wrap mt-50">
-            <!-- Single Skills Area -->
-            <div class="single-skils-area mb-70 mr-5">
-                <div id="circle" class="circle" data-value="0.90">
-                    <div class="skills-text">
-                        <span>110</span>
-                    </div>
-                </div>
-                <p>CV</p>
-            </div>
 
-            <!-- Single Skills Area -->
-            <div class="single-skils-area mb-70 mr-5">
-                <div id="circle2" class="circle" data-value="0.75">
-                    <div class="skills-text">
-                        <span>1.4</span>
-                    </div>
+        <a href="#" class="btn credit-btn box-shadow btn-2">Reservar</a>
+    </div>
+    <div class="d-flex flex-wrap mt-50">
+        <!-- Single Skills Area -->
+        <div class="single-skils-area mb-70 mr-5">
+            <div id="circle" class="circle" data-value="0.90">
+                <div class="skills-text">
+                    <span>{{coche.cv}}</span>
                 </div>
-                <p>CC</p>
             </div>
-            <!-- Single Skills Area -->
-            <div class="single-skils-area mb-70 mr-5">
-                <div id="circle5" class="circle" data-value="0.97">
-                    <div class="skills-text">
-                        <span>TDI</span>
-                    </div>
+            <p>CV</p>
+        </div>
+
+        <!-- Single Skills Area -->
+        <div class="single-skils-area mb-70 mr-5">
+            <div id="circle2" class="circle" data-value="0.75">
+                <div class="skills-text">
+                    <span>coche.cc</span>
                 </div>
-                <p>Motor</p>
             </div>
-            <!-- Single Skills Area -->
-            <div class="single-skils-area mb-70 mr-5">
-                <div id="circle3" class="circle" data-value="5000">
-                    <div class="skills-text">
-                        <span>5000</span>
-                    </div>
+            <p>CC</p>
+        </div>
+        <!-- Single Skills Area -->
+        <div class="single-skils-area mb-70 mr-5">
+            <div id="circle5" class="circle" data-value="0.97">
+                <div class="skills-text">
+                    <span>{{coche.cmbs}}</span>
                 </div>
-                <p>KM</p>
             </div>
-            <!-- Single Skills Area -->
-            <div class="single-skils-area mb-70 mr-5">
-                <div id="circle4" class="circle" data-value="0.27">
-                    <div class="skills-text">
-                        <span>2017</span>
-                    </div>
+            <p>Combustible</p>
+        </div>
+        <!-- Single Skills Area -->
+        <div class="single-skils-area mb-70 mr-5">
+            <div id="circle3" class="circle" data-value="5000">
+                <div class="skills-text">
+                    <span>{{coche.kms}}</span>
                 </div>
-                <p>Año</p>
             </div>
+            <p>KM</p>
+        </div>
+        <!-- Single Skills Area -->
+        <div class="single-skils-area mb-70 mr-5">
+            <div id="circle4" class="circle" data-value="0.27">
+                <div class="skills-text">
+                    <span>{{coche.ano_mat}}</span>
+                </div>
+            </div>
+            <p>Año</p>
+        </div>
+        <div class="cta-thumbnail bg-img jarallax">
+
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
 
         </div>
-        <a href="#" class="btn credit-btn box-shadow btn-2">Reservar</a>
     </div>
 </section>
 <!-- ##### Call To Action End ###### -->
